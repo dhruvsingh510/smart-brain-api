@@ -13,10 +13,11 @@ const db = knex({
   // connect to your own database here
   client: 'pg',
   connection: {
-    connectionString : 'smart-brain-database.czs7rg8gbm80.ap-south-1.rds.amazonaws.com',
-    ssl: {
-      rejectUnauthorized: false
-    }
+    host : 'smart-brain-database.czs7rg8gbm80.ap-south-1.rds.amazonaws.com',
+    port : 5432,
+    user : 'root',
+    password : 'TODaKS2W5XymEO6ICGIc',
+    database : 'postgres'
   }
 });
 
@@ -33,5 +34,5 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
 
 app.listen(process.env.PORT || 3000, ()=> {
-  console.log('app is running on port 3000 or ${process.env.PORT}');
+  console.log('app is running on port 3000 or ${PORT}');
 })
